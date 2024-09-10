@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Portfolio</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+
+  /* Hero Section */  
+  .hero {
+      position: relative;
+      background-image: url('images/background/project2.jpg');
+      background-size: cover;
+      background-position: center 70%;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+  }
+
+  .hero .content {
+      position: relative;
+      z-index: 3;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero a.btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+  }
+
+  /* Additional CSS for About Section */
+
+  .about-section {
+      text-align: center;
+      padding: 100px 0;
+  }
+  .about-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+  }
+  .about-section img {
+      width: 200px; /* Adjust the size as needed */
+      height: 200px;
+      border-radius: 50%; /* Makes the image round */
+      margin-bottom: 20px;
+  }
+  .about-section p {
+      color: #333;
+  }
+
+  /* Additional CSS for Projects Section */
+
+  .project-article {
+      margin: 50px auto;
+      max-width: 800px; /* Limit width to keep text readable */
+      font-family: Arial, sans-serif; /* Same font as 'about-section' */
+      line-height: 1.6;
+      padding: 20px;
+  }
+
+  /* Block text styling with justified alignment */
+  .project-article p {
+      font-size: 1.25rem; /* Adjusted to match the general size of 'about-section' */
+      color: #333; /* Same color as 'about-section' */
+      text-align: justify;
+      margin-bottom: 30px;
+  }
+
+  .project-article p strong {
+      font-weight: bold; /* Bold keywords */
+  }
+
+  /* Image styling */
+  .project-article img {
+      max-width: 100%; /* Responsive image scaling */
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px; /* Optional: rounded corners for images */
+  }
+
+  /* For the two side-by-side images */
+  .image-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+  }
+
+  .image-row img {
+      width: 48%; /* Adjust width for side-by-side images */
+  }
+
+  /* For the centrally aligned image */
+  .central-image {
+      display: block;
+      margin: 0 auto 30px auto;
+  }
+
+
+  /* Additional CSS for Contact Section */
+
+  .contact-section {
+      padding: 50px 0;
+  }
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin: 5px 0; /* Small margin for each line of text */
+    color: #ffffff;
+  }
+
+  .social-icon {
+      width: 40px; /* Size of your icons */
+      margin-bottom: 15px;
+  }
+
+  /* Hover effect for icons */
+
+  .social-icon:hover {
+      opacity: 0.7;
+  }
+  /* Style for links in the Contact section */
+
+  .contact-section a {
+      color: #fff;
+      text-decoration: none; /* Removes underline from links */
+      display: inline-block; /* Allows for margin on the bottom */
+      margin-bottom: 10px;
+  }
+  .contact-section a:hover {
+      color: #ddd; /* Color when hovering over the link */
+  }
+
+  /* CSS for Sticky Navbar */
+  .navbar {
+    box-shadow: none; /* Removes the shadow */
+    border: none; /* Ensures there's no border */
+  }
+
+
+
+  /* Smooth scroll */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* Initial transparent navbar */
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays above other elements */
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Change the color of the navbar when scrolled */
+  .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your background image */
+  }
+
+  /* Ensure the navbar links are fully opaque */
+  .navbar .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+      padding-left: 10px; /* Adjust these values to move closer to the edge */
+      padding-right: 10px;
+  }
+
+
+  .navbar-nav .nav-link {
+      padding-left: 20px; /* Adjust these values to move closer to the edge */
+      padding-right: 20px;
+  } 
+
+  .navbar.scrolled .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  /* Ensure the navbar brand is also fully opaque */
+  .navbar .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+    
+  /* Media query for responsive navbar collapsing */
+  @media (max-width: 992px) {
+      .navbar-collapse {
+          background-color: #343a40; /* Same as navbar color for seamless look */
+      }
+  }
+</style>
+
+</head>
+<body>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="content">
+      <h1>Nonlinear State Estimation via Machine Learning</h1>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+
+<section class="project-article">
+    
+  <!-- Block Text 1 -->
+  <p>
+      This project was focused on exploring the application of <strong>machine learning</strong> in the field of earthquake engineering. The main goal was to develop models that could help in the <strong>damage assessment</strong> of structures following an earthquake. The project involved working with real-world data and deploying a combination of <strong>supervised learning</strong> techniques to achieve accurate predictions. 
+  </p>
+
+  <!-- Two images aligned vertically -->
+  <div class="image-row">
+      <img src="image1.jpg" alt="Image 1 description">
+      <img src="image2.jpg" alt="Image 2 description">
+  </div>
+
+  <!-- Block Text 2 -->
+  <p>
+      The models developed, including <strong>neural networks</strong> and <strong>Gaussian processes</strong>, were thoroughly evaluated using performance metrics such as <strong>accuracy</strong> and <strong>mean squared error</strong>. The final results showcased the ability of these models to handle complex datasets and provide meaningful insights for structural damage prediction.
+  </p>
+
+  <!-- Centrally aligned image -->
+  <img src="image3.jpg" alt="Centrally aligned image description" class="central-image">
+
+</section>
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 mb-3">
+        <!-- Icons centered and reduced in size with hover effect -->
+        <a href="https://www.linkedin.com/in/gabriele--mauro/" target="_blank" class="mx-2">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/Gabriele202277" target="_blank" class="mx-2">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+      </div>
+      <div class="col-12">
+        <!-- Contact information centered below the icons with hover effect -->
+        <p>gabriele-mauro@hotmail.it</p>
+        <p>+45 52631793</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid"> <!-- Changed from 'container' to 'container-fluid' -->
+    <a class="navbar-brand" href="index.html">Gabriele Mauro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(window).scroll(function() {
+      if ($(this).scrollTop() > $('.hero').height()) {
+          $('.navbar').addClass('scrolled');
+      } else {
+          $('.navbar').removeClass('scrolled');
+      }
+  });
+</script>
+
+
+
+</body>
+</html>

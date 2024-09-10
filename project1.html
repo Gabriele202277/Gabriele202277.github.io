@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Portfolio</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+
+  /* Hero Section */  
+  .hero {
+      position: relative;
+      background-image: url('images/background/project1.jpg');
+      background-size: cover;
+      background-position: center 70%;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+  }
+
+  .hero .content {
+      position: relative;
+      z-index: 3;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero a.btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+  }
+
+  /* Additional CSS for Table */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  table th, table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+  }
+
+  table th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+  }
+
+  table td {
+      background-color: #fff;
+  }
+
+
+  /* Additional CSS for Projects Section */
+
+  .project-article {
+      margin: 50px auto;
+      max-width: 800px; /* Limit width to keep text readable */
+      line-height: 1.6;
+      padding: 20px;
+  }
+
+
+
+  .project-article p {
+    color: #333; /* Same color as 'about-section' */
+    text-align: justify;
+    margin-bottom: 30px;
+  }
+
+
+  .project-article p strong {
+      font-weight: bold; /* Bold keywords */
+  }
+
+  /* Image styling */
+  .project-article img {
+      max-width: 100%; /* Responsive image scaling */
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px; /* Optional: rounded corners for images */
+  }
+
+  /* For the two side-by-side images */
+  .image-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+  }
+
+  .image-row img {
+      width: 48%; /* Adjust width for side-by-side images */
+  }
+
+  /* For the centrally aligned image */
+  .central-image {
+      display: block;
+      margin: 0 auto 30px auto;
+  }
+
+
+  /* Additional CSS for Contact Section */
+
+  .contact-section {
+      padding: 50px 0;
+  }
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin: 5px 0; /* Small margin for each line of text */
+    color: #ffffff;
+  }
+
+  .social-icon {
+      width: 40px; /* Size of your icons */
+      margin-bottom: 15px;
+  }
+
+  /* Hover effect for icons */
+
+  .social-icon:hover {
+      opacity: 0.7;
+  }
+  /* Style for links in the Contact section */
+
+  .contact-section a {
+      color: #fff;
+      text-decoration: none; /* Removes underline from links */
+      display: inline-block; /* Allows for margin on the bottom */
+      margin-bottom: 10px;
+  }
+  .contact-section a:hover {
+      color: #ddd; /* Color when hovering over the link */
+  }
+
+  /* CSS for Sticky Navbar */
+  .navbar {
+    box-shadow: none; /* Removes the shadow */
+    border: none; /* Ensures there's no border */
+  }
+
+
+
+  /* Smooth scroll */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* Initial transparent navbar */
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays above other elements */
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Change the color of the navbar when scrolled */
+  .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your background image */
+  }
+
+  /* Ensure the navbar links are fully opaque */
+  .navbar .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+      padding-left: 10px; /* Adjust these values to move closer to the edge */
+      padding-right: 10px;
+  }
+
+
+  .navbar-nav .nav-link {
+      padding-left: 20px; /* Adjust these values to move closer to the edge */
+      padding-right: 20px;
+  } 
+
+  .navbar.scrolled .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  /* Ensure the navbar brand is also fully opaque */
+  .navbar .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+    
+  /* Media query for responsive navbar collapsing */
+  @media (max-width: 992px) {
+      .navbar-collapse {
+          background-color: #343a40; /* Same as navbar color for seamless look */
+      }
+  }
+</style>
+
+</head>
+<body>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="content">
+      <h1>Supervised Machine Learning applied to Wine Dataset</h1>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+
+<section class="project-article">
+    
+  <!-- Block Text 1 -->
+  <p>
+    This project was part of the Machine Learning and Data Mining course I took during my master’s program. The main goal was to develop supervised machine learning models to solve 
+    classification and regression tasks. My team and I decided to use a dataset from the UCI Machine Learning Repository, which data are results of a chemical analysis of wines grown 
+    in the same region in Italy but derived from three different cultivars. The dataset includes 178 records each with 13 features and 1 output class. The features are the measured quantities 
+    of 13 different constituents (e.g. Magnesium, Alcohol, Flavanoids etc.), while the output class corresponds to different origins of the wines, or cultivars. 
+  </p>
+
+
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Mean</th>
+        <th>Stand. Dev.</th>
+        <th>Median</th>
+        <th>Max</th>
+        <th>Min</th>
+        <th>Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Class</td>
+        <td>Discrete, Nominal</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Alcohol</td>
+        <td>Continuous, Ratio</td>
+        <td>13.00</td>
+        <td>0.81</td>
+        <td>13.05</td>
+        <td>14.83</td>
+        <td>11.03</td>
+        <td>13.05</td>
+      </tr>
+      <tr>
+        <td>Malic acid</td>
+        <td>Continuous, Ratio</td>
+        <td>2.34</td>
+        <td>1.11</td>
+        <td>1.865</td>
+        <td>5.8</td>
+        <td>0.74</td>
+        <td>1.73</td>
+      </tr>
+      <tr>
+        <td>Ash</td>
+        <td>Continuous, Ratio</td>
+        <td>2.37</td>
+        <td>0.27</td>
+        <td>2.36</td>
+        <td>3.23</td>
+        <td>1.36</td>
+        <td>2.30</td>
+      </tr>
+      <tr>
+        <td>Alcalinity of ash</td>
+        <td>Continuous, Ratio</td>
+        <td>19.49</td>
+        <td>3.33</td>
+        <td>19.5</td>
+        <td>30</td>
+        <td>10.6</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>Magnesium</td>
+        <td>Continuous, Ratio</td>
+        <td>99.74</td>
+        <td>14.24</td>
+        <td>98</td>
+        <td>162</td>
+        <td>70</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td>Phenols</td>
+        <td>Continuous, Ratio</td>
+        <td>2.30</td>
+        <td>0.62</td>
+        <td>2.355</td>
+        <td>3.88</td>
+        <td>0.98</td>
+        <td>2.20</td>
+      </tr>
+      <tr>
+        <td>Flavanoids</td>
+        <td>Continuous, Ratio</td>
+        <td>2.03</td>
+        <td>1.00</td>
+        <td>2.135</td>
+        <td>5.08</td>
+        <td>0.34</td>
+        <td>2.03</td>
+      </tr>
+      <tr>
+        <td>Nonflavanoid phenols</td>
+        <td>Continuous, Ratio</td>
+        <td>0.36</td>
+        <td>0.12</td>
+        <td>0.34</td>
+        <td>0.66</td>
+        <td>0.13</td>
+        <td>0.26</td>
+      </tr>
+      <tr>
+        <td>Proanthocyanins</td>
+        <td>Continuous, Ratio</td>
+        <td>1.59</td>
+        <td>0.57</td>
+        <td>1.555</td>
+        <td>3.58</td>
+        <td>0.41</td>
+        <td>1.25</td>
+      </tr>
+      <tr>
+        <td>Color intensity</td>
+        <td>Continuous, Ratio</td>
+        <td>5.06</td>
+        <td>2.31</td>
+        <td>4.69</td>
+        <td>13</td>
+        <td>1.28</td>
+        <td>3.8</td>
+      </tr>
+      <tr>
+        <td>Hue</td>
+        <td>Continuous, Ratio</td>
+        <td>0.96</td>
+        <td>0.23</td>
+        <td>0.965</td>
+        <td>1.71</td>
+        <td>0.48</td>
+        <td>1.04</td>
+      </tr>
+      <tr>
+        <td>OD280/OD315</td>
+        <td>Continuous, Ratio</td>
+        <td>2.61</td>
+        <td>0.71</td>
+        <td>2.78</td>
+        <td>4</td>
+        <td>1.27</td>
+        <td>2.87</td>
+      </tr>
+      <tr>
+        <td>Proline</td>
+        <td>Continuous, Ratio</td>
+        <td>746.89</td>
+        <td>314.02</td>
+        <td>673.5</td>
+        <td>1680</td>
+        <td>278</td>
+        <td>680</td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+  <!-- Two images aligned vertically -->
+  <div class="image-row">
+      <img src="image1.jpg" alt="Image 1 description">
+      <img src="image2.jpg" alt="Image 2 description">
+  </div>
+
+  <!-- Block Text 2 -->
+  <p>
+      The models developed, including <strong>neural networks</strong> and <strong>Gaussian processes</strong>, were thoroughly evaluated using performance metrics such as <strong>accuracy</strong> and <strong>mean squared error</strong>. The final results showcased the ability of these models to handle complex datasets and provide meaningful insights for structural damage prediction.
+  </p>
+
+  <!-- Centrally aligned image -->
+  <img src="image3.jpg" alt="Centrally aligned image description" class="central-image">
+
+</section>
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 mb-3">
+        <!-- Icons centered and reduced in size with hover effect -->
+        <a href="https://www.linkedin.com/in/gabriele--mauro/" target="_blank" class="mx-2">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/Gabriele202277" target="_blank" class="mx-2">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+      </div>
+      <div class="col-12">
+        <!-- Contact information centered below the icons with hover effect -->
+        <p>gabriele-mauro@hotmail.it</p>
+        <p>+45 52631793</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid"> <!-- Changed from 'container' to 'container-fluid' -->
+    <a class="navbar-brand" href="index.html">Gabriele Mauro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(window).scroll(function() {
+      if ($(this).scrollTop() > $('.hero').height()) {
+          $('.navbar').addClass('scrolled');
+      } else {
+          $('.navbar').removeClass('scrolled');
+      }
+  });
+</script>
+
+
+
+</body>
+</html>
