@@ -299,19 +299,15 @@
   /* Media query for responsive navbar collapsing: for smartphones nad tablets */
 
 
-    /* Reduce font size for smaller screens */
-@media (max-width: 992px) {
-    .navbar .nav-link {
-        font-size: 1rem; /* Slightly smaller text */
-    }
-
-    .navbar-brand {
-        font-size: 1rem; /* Adjust the brand size too if needed */
-    }
-}
-
   /* Reduce the font size of the warning text for smaller screens */
   @media (max-width: 992px) {
+      .navbar .nav-link {
+          font-size: 1rem; /* Slightly smaller text */
+      }
+
+      .navbar-brand {
+          font-size: 1rem; /* Adjust the brand size too if needed */
+      }
       .warning-text {
           font-size: 0.6rem; /* Adjust this value as needed */
       }
@@ -329,12 +325,13 @@
       }
   }
 
-  /* Make the hamburger button smaller */
-.navbar-toggler {
-    padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
-    font-size: 0.85rem; /* Adjust font size if necessary */
-    border: none; /* Optional: Remove border if needed */
-}
+    /* Make the hamburger button smaller */
+  .navbar-toggler {
+      padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
+      font-size: 0.85rem; /* Adjust font size if necessary */
+      border: none; /* Optional: Remove border if needed */
+  }
+
 
 
 
