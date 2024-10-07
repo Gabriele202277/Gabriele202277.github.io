@@ -330,12 +330,25 @@
       }
 
       .navbar-collapse {
+        width: 100%; /* Full width */
+        padding: 10px; /* Optional padding */
+        text-align: center; /* Center the text inside the menu */
         background-color: transparent; /* Transparent like the navbar when not scrolled */
         transition: background-color 0.1s ease-in-out; /* Smooth transition */
       }
       /* When the navbar is scrolled, match the background color */
       .navbar.scrolled .navbar-collapse {
         background-color: rgba(50, 49, 49, 0.8); /* Same as scrolled navbar */
+      }
+
+      .navbar-nav {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Center the nav items horizontally */
+      }
+
+      .nav-item {
+        margin: 0 15px; /* Adjust the margin between nav items */
       }
 
 
