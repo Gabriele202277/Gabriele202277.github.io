@@ -236,6 +236,21 @@
     margin-right: 8px; /* Adds some space between the icon and text */
   }
 
+  /* Reduce the font size of the warning text for smaller screens */
+  @media (max-width: 768px) {
+      .warning-text {
+          font-size: 0.8rem; /* Adjust this value as needed */
+      }
+
+      /* You can also reduce the size of the image */
+      .navbar-warning img {
+          width: 15px; /* Adjust the image size */
+          height: 15px;
+      }
+  }
+
+
+
 
 
 
@@ -286,6 +301,20 @@
       color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
       transition: color 0.3s ease-in-out;
   }
+
+  /* Reduce font size for smaller screens */
+@media (max-width: 768px) {
+    .navbar .nav-link {
+        font-size: 0.85rem; /* Slightly smaller text */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Adjust the brand size too if needed */
+    }
+}
+
+
+
 
   .navbar.scrolled .navbar-brand {
       color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
@@ -460,7 +489,7 @@
       <!-- Skill 4 -->
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card">
-          <img src="images/skills/4.png" class="card-img-top" alt="Cooperative">
+          <img src="images/skills/4.png" class="card-img-top" alt="Cooperation">
           <div class="card-body">
             <h5 class="card-title">Cooperative</h5>
             <p class="card-text"></p>
