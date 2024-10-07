@@ -630,26 +630,6 @@
 
 
 <script>
-  $(window).scroll(function() {
-      // Get the height of the hero section
-      var heroHeight = $('.hero').height();
-      // Calculate 2/3 of the hero section's height
-      var scrollThreshold = heroHeight * (2 / 3);
-
-      // Apply only for mobile devices (screen width below 768px)
-      if ($(window).width() <= 768) {
-          // Trigger the change after 2/3 of the hero section height is scrolled
-          if ($(this).scrollTop() > scrollThreshold) {
-              $('.navbar').addClass('scrolled');
-          } else {
-              $('.navbar').removeClass('scrolled');
-          }
-      }
-  });
-</script>
-
-
-<script>
   // Close the menu when the user scrolls
   $(window).scroll(function() {
       if ($('.navbar-collapse').hasClass('show')) { 
