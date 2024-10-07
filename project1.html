@@ -298,12 +298,77 @@ figcaption {
       transition: color 0.3s ease-in-out;
   }
     
-  /* Media query for responsive navbar collapsing */
+  /* Media query for responsive navbar collapsing: for smartphones nad tablets */
+
+
+  /* Reduce the font size of the warning text for smaller screens */
   @media (max-width: 992px) {
-      .navbar-collapse {
-          background-color: #343a40; /* Same as navbar color for seamless look */
-      }
-  }
+
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    }
+    .navbar .nav-link {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Adjust the brand size too if needed */
+    }
+    .warning-text {
+        font-size: 0.6rem; /* Adjust this value as needed */
+    }
+
+    /* You can also reduce the size of the image */
+    .navbar-warning img {
+        display: none;
+    }
+
+    .navbar-collapse {
+      width: 100%; /* Full width */
+      padding: 10px; /* Optional padding */
+      text-align: center; /* Center the text inside the menu */
+      background-color: transparent; /* Transparent like the navbar when not scrolled */
+      transition: background-color 0.1s ease-in-out; /* Smooth transition */
+    }
+    /* When the navbar is scrolled, match the background color */
+    .navbar.scrolled .navbar-collapse {
+      background-color: rgba(50, 49, 49, 0.8); /* Same as scrolled navbar */
+    }
+
+    .navbar-nav {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the nav items horizontally */
+    }
+
+    .nav-item {
+      margin: 0 15px; /* Adjust the margin between nav items */
+    }
+
+
+    }
+
+    /* Make the hamburger (menu button) button smaller */
+    .navbar-toggler {
+    padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
+    font-size: 0.85rem; /* Adjust font size if necessary */
+    border: none; /* Optional: Remove border if needed */
+
+    }
+
 </style>
 
 </head>
@@ -893,7 +958,19 @@ figcaption {
 </script>
 
 
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
 
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
 
 
 
