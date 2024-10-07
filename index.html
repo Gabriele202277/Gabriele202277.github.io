@@ -330,9 +330,14 @@
       }
 
       .navbar-collapse {
-        background-color: transparent;
-        background-color: #a36dc0; /* Same as navbar color for seamless look */
+        background-color: transparent; /* Transparent like the navbar when not scrolled */
+        transition: background-color 0.3s ease-in-out; /* Smooth transition */
       }
+      /* When the navbar is scrolled, match the background color */
+      .navbar.scrolled .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.8); /* Same as scrolled navbar */
+      }
+
 
   }
 
