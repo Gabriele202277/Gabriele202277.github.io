@@ -104,35 +104,56 @@
   }
 
 
-    /* Additional CSS for Table */
+  /* Responsive table wrapper for small screens */
+  .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      margin: 20px 0; /* Optional: space around the table */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
 
+  /* General Table Styles */
   table {
-    width: 100%; /* Optional: Adjust width to fit the page */
-    margin: 40px auto; /* Center the table on the page */
-    border-collapse: collapse; /* For better table style */
-    font-size: 0.85rem; 
+      width: 100%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      font-size: 0.85rem;
   }
 
+  /* Table Cell Styling */
   table th, table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
   }
 
-   
+  /* Special Styling for Last Row */
   .last-row {
-   border-top: 2px double #333; /* Double line on top of the last row */
-   font-weight: bold; /* Optional: Bold font for the last row */
+    border-top: 2px double #333; /* Double line on top of the last row */
+    font-weight: bold;
   }
 
+  /* Caption Styling */
   caption {
-    caption-side: top; /* Ensure the caption is on top */
-    text-align: center; /* Center the caption */
-    font-weight: bold; /* Make the caption bold */
-    padding: 10px 0; /* Add space around the caption */
-    font-size: 1rem; 
-    color: #000;
+      caption-side: top;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #000;
   }
+
+/* Adjustments for Smaller Screens (mobile) */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.75rem; /* Slightly smaller text for mobile */
+    }
+
+    table th, table td {
+        padding: 5px; /* Reduce padding on mobile */
+    }
+}
+
 
 
 
@@ -298,7 +319,7 @@ figcaption {
       transition: color 0.3s ease-in-out;
   }
     
-  /* Media query for responsive navbar collapsing: for smartphones nad tablets */
+/* Media query for responsive navbar collapsing: for smartphones nad tablets */
 
 
   /* Reduce the font size of the warning text for smaller screens */
@@ -398,163 +419,166 @@ figcaption {
 
 
 
-  <table border="1" cellpadding="10" cellspacing="0">
-  <caption>Table 1: Statistics of the attributes in the Wine Dataset</caption>
-  <thead>
-        <tr>
-          <th>Attribute</th>
-          <th>Type</th>
-          <th>Mean</th>
-          <th>Stand. Dev.</th>
-          <th>Median</th>
-          <th>Max</th>
-          <th>Min</th>
-          <th>Mode</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Class</td>
-          <td>Discrete, Nominal</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Alcohol</td>
-          <td>Continuous, Ratio</td>
-          <td>13.00</td>
-          <td>0.81</td>
-          <td>13.05</td>
-          <td>14.83</td>
-          <td>11.03</td>
-          <td>13.05</td>
-        </tr>
-        <tr>
-          <td>Malic acid</td>
-          <td>Continuous, Ratio</td>
-          <td>2.34</td>
-          <td>1.11</td>
-          <td>1.865</td>
-          <td>5.8</td>
-          <td>0.74</td>
-          <td>1.73</td>
-        </tr>
-        <tr>
-          <td>Ash</td>
-          <td>Continuous, Ratio</td>
-          <td>2.37</td>
-          <td>0.27</td>
-          <td>2.36</td>
-          <td>3.23</td>
-          <td>1.36</td>
-          <td>2.30</td>
-        </tr>
-        <tr>
-          <td>Alcalinity of ash</td>
-          <td>Continuous, Ratio</td>
-          <td>19.49</td>
-          <td>3.33</td>
-          <td>19.5</td>
-          <td>30</td>
-          <td>10.6</td>
-          <td>20</td>
-        </tr>
-        <tr>
-          <td>Magnesium</td>
-          <td>Continuous, Ratio</td>
-          <td>99.74</td>
-          <td>14.24</td>
-          <td>98</td>
-          <td>162</td>
-          <td>70</td>
-          <td>88</td>
-        </tr>
-        <tr>
-          <td>Phenols</td>
-          <td>Continuous, Ratio</td>
-          <td>2.30</td>
-          <td>0.62</td>
-          <td>2.355</td>
-          <td>3.88</td>
-          <td>0.98</td>
-          <td>2.20</td>
-        </tr>
-        <tr>
-          <td>Flavanoids</td>
-          <td>Continuous, Ratio</td>
-          <td>2.03</td>
-          <td>1.00</td>
-          <td>2.135</td>
-          <td>5.08</td>
-          <td>0.34</td>
-          <td>2.65</td>
-        </tr>
-        <tr>
-          <td>Nonflavanoid phenols</td>
-          <td>Continuous, Ratio</td>
-          <td>0.36</td>
-          <td>0.12</td>
-          <td>0.34</td>
-          <td>0.66</td>
-          <td>0.13</td>
-          <td>0.26</td>
-        </tr>
-        <tr>
-          <td>Proanthocyanins</td>
-          <td>Continuous, Ratio</td>
-          <td>1.59</td>
-          <td>0.57</td>
-          <td>1.555</td>
-          <td>3.58</td>
-          <td>0.41</td>
-          <td>1.25</td>
-        </tr>
-        <tr>
-          <td>Color intensity</td>
-          <td>Continuous, Ratio</td>
-          <td>5.06</td>
-          <td>2.31</td>
-          <td>4.69</td>
-          <td>13</td>
-          <td>1.28</td>
-          <td>3.8</td>
-        </tr>
-        <tr>
-          <td>Hue</td>
-          <td>Continuous, Ratio</td>
-          <td>0.96</td>
-          <td>0.23</td>
-          <td>0.965</td>
-          <td>1.71</td>
-          <td>0.48</td>
-          <td>1.04</td>
-        </tr>
-        <tr>
-          <td>OD280/OD315</td>
-          <td>Continuous, Ratio</td>
-          <td>2.61</td>
-          <td>0.71</td>
-          <td>2.78</td>
-          <td>4</td>
-          <td>1.27</td>
-          <td>2.87</td>
-        </tr>
-        <tr>
-          <td>Proline</td>
-          <td>Continuous, Ratio</td>
-          <td>746.89</td>
-          <td>314.02</td>
-          <td>673.5</td>
-          <td>1680</td>
-          <td>278</td>
-          <td>680</td>
-        </tr>
-    </tbody>
+<div class="table-responsive">
+  <table>
+    <caption>Table 1: Statistics of the attributes in the Wine Dataset</caption>
+    <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Mean</th>
+            <th>Stand. Dev.</th>
+            <th>Median</th>
+            <th>Max</th>
+            <th>Min</th>
+            <th>Mode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Class</td>
+            <td>Discrete, Nominal</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Alcohol</td>
+            <td>Continuous, Ratio</td>
+            <td>13.00</td>
+            <td>0.81</td>
+            <td>13.05</td>
+            <td>14.83</td>
+            <td>11.03</td>
+            <td>13.05</td>
+          </tr>
+          <tr>
+            <td>Malic acid</td>
+            <td>Continuous, Ratio</td>
+            <td>2.34</td>
+            <td>1.11</td>
+            <td>1.865</td>
+            <td>5.8</td>
+            <td>0.74</td>
+            <td>1.73</td>
+          </tr>
+          <tr>
+            <td>Ash</td>
+            <td>Continuous, Ratio</td>
+            <td>2.37</td>
+            <td>0.27</td>
+            <td>2.36</td>
+            <td>3.23</td>
+            <td>1.36</td>
+            <td>2.30</td>
+          </tr>
+          <tr>
+            <td>Alcalinity of ash</td>
+            <td>Continuous, Ratio</td>
+            <td>19.49</td>
+            <td>3.33</td>
+            <td>19.5</td>
+            <td>30</td>
+            <td>10.6</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Magnesium</td>
+            <td>Continuous, Ratio</td>
+            <td>99.74</td>
+            <td>14.24</td>
+            <td>98</td>
+            <td>162</td>
+            <td>70</td>
+            <td>88</td>
+          </tr>
+          <tr>
+            <td>Phenols</td>
+            <td>Continuous, Ratio</td>
+            <td>2.30</td>
+            <td>0.62</td>
+            <td>2.355</td>
+            <td>3.88</td>
+            <td>0.98</td>
+            <td>2.20</td>
+          </tr>
+          <tr>
+            <td>Flavanoids</td>
+            <td>Continuous, Ratio</td>
+            <td>2.03</td>
+            <td>1.00</td>
+            <td>2.135</td>
+            <td>5.08</td>
+            <td>0.34</td>
+            <td>2.65</td>
+          </tr>
+          <tr>
+            <td>Nonflavanoid phenols</td>
+            <td>Continuous, Ratio</td>
+            <td>0.36</td>
+            <td>0.12</td>
+            <td>0.34</td>
+            <td>0.66</td>
+            <td>0.13</td>
+            <td>0.26</td>
+          </tr>
+          <tr>
+            <td>Proanthocyanins</td>
+            <td>Continuous, Ratio</td>
+            <td>1.59</td>
+            <td>0.57</td>
+            <td>1.555</td>
+            <td>3.58</td>
+            <td>0.41</td>
+            <td>1.25</td>
+          </tr>
+          <tr>
+            <td>Color intensity</td>
+            <td>Continuous, Ratio</td>
+            <td>5.06</td>
+            <td>2.31</td>
+            <td>4.69</td>
+            <td>13</td>
+            <td>1.28</td>
+            <td>3.8</td>
+          </tr>
+          <tr>
+            <td>Hue</td>
+            <td>Continuous, Ratio</td>
+            <td>0.96</td>
+            <td>0.23</td>
+            <td>0.965</td>
+            <td>1.71</td>
+            <td>0.48</td>
+            <td>1.04</td>
+          </tr>
+          <tr>
+            <td>OD280/OD315</td>
+            <td>Continuous, Ratio</td>
+            <td>2.61</td>
+            <td>0.71</td>
+            <td>2.78</td>
+            <td>4</td>
+            <td>1.27</td>
+            <td>2.87</td>
+          </tr>
+          <tr>
+            <td>Proline</td>
+            <td>Continuous, Ratio</td>
+            <td>746.89</td>
+            <td>314.02</td>
+            <td>673.5</td>
+            <td>1680</td>
+            <td>278</td>
+            <td>680</td>
+          </tr>
+      </tbody>
   </table>
+</div>
+
 
   <p>  
     The dataset does not present missing values, nor corrupted data, or general data issues. However, the presence of outliers was investigated. The method used for such purpose involves the z-score 
@@ -645,105 +669,107 @@ figcaption {
   </p>
 
 
- <table>
-  <caption>Table 2: Two-layer cross-validation results for the regression problem </caption>
-  <tr>
-    <th>Fold index (i)</th>
-    <th>Baseline, E<sub>test,i</sub></th>
-    <th>Linear Regr, λ<sub>i</sub> </th>
-    <th>Linear Regr, E<sub>test,i</sub></th>
-    <th>ANN, h<sub>i</sub></th>
-    <th>ANN, E<sub>test,i</sub></th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>0.40</td>
-    <td>10</td>
-    <td>0.12</td>
-    <td>3</td>
-    <td>0.15</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>0.49</td>
-    <td>10</td>
-    <td>0.17</td>
-    <td>3</td>
-    <td>0.22</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>0.40</td>
-    <td>10</td>
-    <td>0.09</td>
-    <td>3</td>
-    <td>0.12</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>0.33</td>
-    <td>10</td>
-    <td>0.09</td>
-    <td>3</td>
-    <td>0.10</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>0.23</td>
-    <td>10</td>
-    <td>0.18</td>
-    <td>3</td>
-    <td>0.16</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>0.29</td>
-    <td>10</td>
-    <td>0.09</td>
-    <td>3</td>
-    <td>0.11</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>0.31</td>
-    <td>10</td>
-    <td>0.09</td>
-    <td>3</td>
-    <td>0.14</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>0.48</td>
-    <td>10</td>
-    <td>0.11</td>
-    <td>3</td>
-    <td>0.18</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>0.35</td>
-    <td>10</td>
-    <td>0.10</td>
-    <td>3</td>
-    <td>0.10</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>0.38</td>
-    <td>10</td>
-    <td>0.05</td>
-    <td>3</td>
-    <td>0.10</td>
-  </tr>
-  <tr class="last-row">
-    <td>E<sub>gen</sub></td>
-    <td>0.366</td>
-    <td>-</td>
-    <td>0.109</td>
-    <td>-</td>
-    <td>0.138</td>
-  </tr>
-</table>
+<div class="table-responsive">
+  <table>
+    <caption>Table 2: Two-layer cross-validation results for the regression problem </caption>
+    <tr>
+      <th>Fold index (i)</th>
+      <th>Baseline, E<sub>test,i</sub></th>
+      <th>Linear Regr, λ<sub>i</sub> </th>
+      <th>Linear Regr, E<sub>test,i</sub></th>
+      <th>ANN, h<sub>i</sub></th>
+      <th>ANN, E<sub>test,i</sub></th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.40</td>
+      <td>10</td>
+      <td>0.12</td>
+      <td>3</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.49</td>
+      <td>10</td>
+      <td>0.17</td>
+      <td>3</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.40</td>
+      <td>10</td>
+      <td>0.09</td>
+      <td>3</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.33</td>
+      <td>10</td>
+      <td>0.09</td>
+      <td>3</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.23</td>
+      <td>10</td>
+      <td>0.18</td>
+      <td>3</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.29</td>
+      <td>10</td>
+      <td>0.09</td>
+      <td>3</td>
+      <td>0.11</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0.31</td>
+      <td>10</td>
+      <td>0.09</td>
+      <td>3</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0.48</td>
+      <td>10</td>
+      <td>0.11</td>
+      <td>3</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0.35</td>
+      <td>10</td>
+      <td>0.10</td>
+      <td>3</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>0.38</td>
+      <td>10</td>
+      <td>0.05</td>
+      <td>3</td>
+      <td>0.10</td>
+    </tr>
+    <tr class="last-row">
+      <td>E<sub>gen</sub></td>
+      <td>0.366</td>
+      <td>-</td>
+      <td>0.109</td>
+      <td>-</td>
+      <td>0.138</td>
+    </tr>
+  </table>
+</div>
 
   
   <p>  
@@ -789,7 +815,7 @@ figcaption {
 
 
   
-
+<div class="table-responsive">
   <table>
     <caption>Table 3: Two-layer cross-validation results for the classification problem</caption>
     <tr>
@@ -889,7 +915,7 @@ figcaption {
       <td>0.064</td>
     </tr>
   </table>
-  
+</div> 
 
 
 
@@ -957,7 +983,19 @@ figcaption {
   });
 </script>
 
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
 
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
 
 
 
