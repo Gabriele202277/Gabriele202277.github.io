@@ -236,24 +236,6 @@
     margin-right: 8px; /* Adds some space between the icon and text */
   }
 
-  /* Reduce the font size of the warning text for smaller screens */
-  @media (max-width: 768px) {
-      .warning-text {
-          font-size: 1rem; /* Adjust this value as needed */
-      }
-
-      /* You can also reduce the size of the image */
-      .navbar-warning img {
-          width: 8px; /* Adjust the image size */
-          height: 8px;
-      }
-  }
-
-
-
-
-
-
   /* Smooth scroll */
   html {
       scroll-behavior: smooth;
@@ -302,8 +284,23 @@
       transition: color 0.3s ease-in-out;
   }
 
-  /* Reduce font size for smaller screens */
-@media (max-width: 768px) {
+
+
+
+
+
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  
+  /* Media query for responsive navbar collapsing: for smartphones nad tablets */
+
+
+    /* Reduce font size for smaller screens */
+@media (max-width: 992px) {
     .navbar .nav-link {
         font-size: 1rem; /* Slightly smaller text */
     }
@@ -313,20 +310,38 @@
     }
 }
 
+  /* Reduce the font size of the warning text for smaller screens */
+  @media (max-width: 992px) {
+      .warning-text {
+          font-size: 0.8rem; /* Adjust this value as needed */
+      }
 
-
-
-  .navbar.scrolled .navbar-brand {
-      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
-      transition: color 0.3s ease-in-out;
+      /* You can also reduce the size of the image */
+      .navbar-warning img {
+          width: 8px; /* Adjust the image size */
+          height: 8px;
+      }
   }
-    
+
   /* Media query for responsive navbar collapsing */
   @media (max-width: 992px) {
       .navbar-collapse {
           background-color: #343a40; /* Same as navbar color for seamless look */
       }
   }
+
+  /* Make the hamburger button smaller */
+.navbar-toggler {
+    padding: 0.25rem 0.5rem; /* Reduce padding to make it smaller */
+    font-size: 0.85rem; /* Adjust font size if necessary */
+    border: none; /* Optional: Remove border if needed */
+}
+
+
+
+
+
+
 </style>
 
 </head>
