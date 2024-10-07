@@ -629,6 +629,21 @@
 </script>
 
 
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
+
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
+
+
 
 </body>
 </html>
