@@ -354,6 +354,29 @@ def subtract_numbers(a, b):
   </code></pre>
 
 
+  <h1>Tables Rendered as Code Snippets</h1>
+
+  <!-- Ratings Table -->
+  <h2>Ratings Head</h2>
+  <pre><code class="language-python">
+   user_id  movie_id  rating
+0        2  113862.0     3.0
+1        2  114898.0     3.0
+2        2  109444.0     4.0
+3        2  109830.0     3.0
+4        2  111257.0     3.0
+  </code></pre>
+
+  <!-- Movies Metadata Table -->
+  <h2>Movies Metadata Head</h2>
+  <pre><code class="language-python">
+   movie_id                   title  vote_average  vote_count
+0   95765.0         Cinema Paradiso           8.2       834.0
+1   67116.0   The French Connection           7.4       435.0
+2   80801.0  The Gods Must Be Crazy           7.1       251.0
+3   96446.0                  Willow           6.9       484.0
+4  112697.0                Clueless           6.9       828.0
+  </code></pre>
 
 </section>
 
@@ -439,6 +462,42 @@ def subtract_numbers(a, b):
       hljs.highlightAll();
 </script>
 
+<!-- Function to inset JSON files -->
+
+<script>
+  /**
+   * Function to fetch and display JSON data in a code block
+   * @param {string} jsonFile - The path to the JSON file
+   * @param {string} elementId - The ID of the <code> element to display the JSON
+   */
+  function displayJson(jsonFile, elementId) {
+      fetch(jsonFile)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`Could not load JSON file: ${jsonFile}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const codeElement = document.getElementById(elementId);
+              if (!codeElement) {
+                  console.error(`Element with ID "${elementId}" not found.`);
+                  return;
+              }
+              // Convert JSON to a pretty-printed string
+              codeElement.textContent = JSON.stringify(data, null, 4);
+              // Apply syntax highlighting with Highlight.js
+              hljs.highlightElement(codeElement);
+          })
+          .catch(error => {
+              console.error(`Error displaying JSON for ${elementId}:`, error);
+          });
+  }
+
+  // Call the function to display two JSON files
+  displayJson('scripts/movies_metadata_head.json', 'json-code-1');
+  displayJson('scripts/ratings_head.json', 'json-code-2');
+</script>
 
 
 
