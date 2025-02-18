@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Portfolio</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+
+  /* Hero Section (Background picture)*/  
+  .hero {
+      position: relative;
+      background-image: url('images/background/project1.jpg');
+      background-size: cover;
+      background-position: center 70%;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+  }
+
+  .hero .content {
+      position: relative;
+      z-index: 3;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero a.btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+  }
+
+    /* Additional CSS for Projects Section (article) */
+
+  .project-article {
+    margin: 50px auto;
+    max-width: 800px; /* Limit width to keep text readable */
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+
+
+  .project-article p {
+    color: #333; /* Same color as 'about-section' */
+    text-align: justify;
+    margin-bottom: 40px;
+  }
+
+  .project-article h2 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+  }
+
+  .project-article h3 {
+    margin-top: 60px;    
+  }
+
+
+  .project-article p strong {
+      font-weight: bold; /* Bold keywords */
+  }
+
+
+  /* Image styling */
+  .project-article img {
+      max-width: 100%; /* Responsive image scaling */
+      height: auto;
+      margin-bottom: 40px;
+      border-radius: 10px; /* Optional: rounded corners for images */
+  }
+
+
+  /* Responsive table wrapper for small screens */
+  .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      margin: 20px 0; /* Optional: space around the table */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  /* General Table Styles */
+  table {
+      width: 100%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+  }
+
+  /* Table Cell Styling */
+  table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+  }
+
+  /* Special Styling for Last Row */
+  .last-row {
+    border-top: 2px double #333; /* Double line on top of the last row */
+    font-weight: bold;
+  }
+
+  /* Caption Styling */
+  caption {
+      caption-side: top;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #000;
+  }
+
+/* Adjustments for Smaller Screens (mobile) */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.75rem; /* Slightly smaller text for mobile */
+    }
+
+    table th, table td {
+        padding: 5px; /* Reduce padding on mobile */
+    }
+}
+
+
+
+
+  /* For the centrally aligned image */
+
+  .central-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto; /* Centers the figure */
+  }
+
+  .central-image img {
+      max-width: 60%; /* Make the image smaller, adjust percentage as needed */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 5px; /* Optional: Adds rounded corners to the image */
+  }
+
+
+
+  .large-figure img {
+  max-width: 80%; /* Increase the image size to 150% of its normal width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+
+
+  /* For 6 pcitures organized in 2 rows each with 3 pictures (2x3)*/
+
+.image-grid_6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_6 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+.image-grid_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_2 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+
+figcaption {
+  grid-column: 1 / -1; /* This spans the caption across all columns */
+  text-align: center; /* Center the caption text */
+  font-weight: bold; /* Make the caption bold */
+  margin-top: 10px;
+}
+
+
+  /* Additional CSS for Contact Section */
+
+  .contact-section {
+      padding: 50px 0;
+  }
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin: 5px 0; /* Small margin for each line of text */
+    color: #ffffff;
+  }
+
+  .social-icon {
+      width: 40px; /* Size of your icons */
+      margin-bottom: 15px;
+  }
+
+  /* Hover effect for icons */
+
+  .social-icon:hover {
+      opacity: 0.7;
+  }
+  /* Style for links in the Contact section */
+
+  .contact-section a {
+      color: #fff;
+      text-decoration: none; /* Removes underline from links */
+      display: inline-block; /* Allows for margin on the bottom */
+      margin-bottom: 10px;
+  }
+  .contact-section a:hover {
+      color: #ddd; /* Color when hovering over the link */
+  }
+
+  /* CSS for Sticky Navbar */
+  .navbar {
+    box-shadow: none; /* Removes the shadow */
+    border: none; /* Ensures there's no border */
+  }
+
+
+
+  /* Smooth scroll */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* Initial transparent navbar */
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays above other elements */
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Change the color of the navbar when scrolled */
+  .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your background image */
+  }
+
+  /* Ensure the navbar links are fully opaque */
+  .navbar .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+      padding-left: 10px; /* Adjust these values to move closer to the edge */
+      padding-right: 10px;
+  }
+
+
+  .navbar-nav .nav-link {
+      padding-left: 20px; /* Adjust these values to move closer to the edge */
+      padding-right: 20px;
+  } 
+
+  .navbar.scrolled .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  /* Ensure the navbar brand is also fully opaque */
+  .navbar .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+    
+/* Media query for responsive navbar collapsing: for smartphones nad tablets */
+
+
+  /* Reduce the font size of the warning text for smaller screens */
+  @media (max-width: 992px) {
+
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .hero p {
+    font-size: 1.0rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    }
+    .navbar .nav-link {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Adjust the brand size too if needed */
+    }
+    .warning-text {
+        font-size: 0.6rem; /* Adjust this value as needed */
+    }
+
+    /* You can also reduce the size of the image */
+    .navbar-warning img {
+        display: none;
+    }
+
+    .navbar-collapse {
+      width: 100%; /* Full width */
+      padding: 10px; /* Optional padding */
+      text-align: center; /* Center the text inside the menu */
+      background-color: transparent; /* Transparent like the navbar when not scrolled */
+      transition: background-color 0.1s ease-in-out; /* Smooth transition */
+    }
+    /* When the navbar is scrolled, match the background color */
+    .navbar.scrolled .navbar-collapse {
+      background-color: rgba(50, 49, 49, 0.8); /* Same as scrolled navbar */
+    }
+
+    .navbar-nav {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the nav items horizontally */
+    }
+
+    .nav-item {
+      margin: 0 15px; /* Adjust the margin between nav items */
+    }
+
+
+    }
+
+    /* Make the hamburger (menu button) button smaller */
+    .navbar-toggler {
+    padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
+    font-size: 0.85rem; /* Adjust font size if necessary */
+    border: none; /* Optional: Remove border if needed */
+
+    }
+
+</style>
+
+
+<!-- Include Highlight.js CSS Theme for Python scripts snippets -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+
+<!-- Include Highlight.js Script for Python scripts snippets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+    
+
+
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="content">
+      <h1>AI Movie Recommendation Tool</h1>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+
+<section class="project-article"> <!-- Start writing the article here -->
+
+
+
+<p> Brief project to explore how LLMs can be used to calculate similarity between movies and build a simple AI movie recommender. I have used two datasets including  movies: </p>
+
+
+<ul>
+  <li><strong>Movies metadata</strong> containing metadata of about 9000 movies with the following columns:</li>
+
+    <ul>
+        <li><strong>movie_id</strong>: Unique identifier of each movie.</li>
+        <li><strong>title</strong>: Title of the movie.</li>
+        <li><strong>overview</strong>: Short description of the movie.</li>
+        <li><strong>vote_average</strong>: Average score the movie got.</li>
+        <li><strong>vote_count</strong>: Total number of votes the movie got.</li>
+    </ul>
+
+  <div style="margin-top: 20px;"></div>
+
+  <li><strong>User ratings</strong> (ratings.csv) containing 99793 ratings of how much a specific used liked a movie with the following columns:</li>
+
+    <ul>
+        <li><strong>user_id</strong>: Unique identifier of the person who rated the movie.</li>
+        <li><strong>movie_id</strong>: Unique identifier of the movie.</li>
+        <li><strong>rating</strong>: Value between 0 and 10 indicating how much the person liked the movie.</li>
+    </ul>
+</ul>
+
+<p>The datasets have been imported and printed in Python:</p>
+    
+  <pre><code class="language-python">
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    
+    # Read the movies_metadata file
+    movies_metadata = pd.read_csv('movies_metadata.csv')
+    # Read the ratings file
+    ratings = pd.read_csv('ratings.csv')
+    
+    # Print the first 5 rows of each dataset
+    print(movies_metadata.head())
+    print(ratings.head())
+  </code></pre>
+
+  <!-- Movies Metadata Table -->
+
+  <pre><code class="language-python">
+   movie_id                   title  vote_average  vote_count
+0   95765.0         Cinema Paradiso           8.2       834.0
+1   67116.0   The French Connection           7.4       435.0
+2   80801.0  The Gods Must Be Crazy           7.1       251.0
+3   96446.0                  Willow           6.9       484.0
+4  112697.0                Clueless           6.9       828.0
+  </code></pre>
+
+
+    <!-- Ratings Table -->
+ 
+    <pre><code class="language-python">
+     user_id  movie_id  rating
+  0        2  113862.0     3.0
+  1        2  114898.0     3.0
+  2        2  109444.0     4.0
+  3        2  109830.0     3.0
+  4        2  111257.0     3.0
+    </code></pre>
+
+
+  <div style="margin-top: 40px;"></div>
+
+
+<h2>Exploratory analysis</h2>
+
+  
+<p> Queries the dataset to count unique movies, unique users, and unique rated movies: </p>
+
+  <pre><code class="language-python">
+    # Count how many unique movies there are
+    unique_movies = movies_metadata['movie_id'].nunique()
+    
+    # Count how many unique users have rated how many unique movies
+    unique_users = ratings['user_id'].nunique()
+    unique_rated_movies = ratings['movie_id'].nunique()
+    
+    print(f"Number of unique movies: {unique_movies}")
+    print(f"Number of unique users: {unique_users}")
+    print(f"Number of unique rated movies: {unique_rated_movies}")
+  </code></pre>
+
+  <pre><code class="language-python">
+    Number of unique movies: 9010
+    Number of unique users: 671
+    Number of unique rated movies: 9010
+  </code></pre>
+
+  <p> Create basic visualizations: </p>
+
+  <div class="image-grid_2">
+    <img src="images/project4/Distribution_votes.png" alt="Alcohol Distribution">
+    <img src="images/project4/Number_votes.png" alt="Flavanoids Distribution">
+    <figcaption>Figure 1: Votes distribution and count in metadata dataset</figcaption>
+  </div>
+
+  <div class="image-grid_2">
+    <img src="images/project4/Distribution_ratings.png" alt="Alcohol Distribution">
+    <img src="images/project4/Number_ratings.png" alt="Flavanoids Distribution">
+    <figcaption>Figure 2: Ratings distribution and count in ratings dataset</figcaption>
+  </div>
+
+
+
+</section> <!-- End of text section -->
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 mb-3">
+        <!-- Icons centered and reduced in size with hover effect -->
+        <a href="https://www.linkedin.com/in/gabriele--mauro/" target="_blank" class="mx-2">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/Gabriele202277" target="_blank" class="mx-2">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+      </div>
+      <div class="col-12">
+        <!-- Contact information centered below the icons with hover effect -->
+        <p>gabriele-mauro@hotmail.it</p>
+        <p>+45 52631793</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid"> <!-- Changed from 'container' to 'container-fluid' -->
+    <a class="navbar-brand" href="index.html">Gabriele Mauro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(window).scroll(function() {
+      if ($(this).scrollTop() > $('.hero').height()) {
+          $('.navbar').addClass('scrolled');
+      } else {
+          $('.navbar').removeClass('scrolled');
+      }
+  });
+</script>
+
+
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
+
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
+
+
+<!-- Initialize Highlight.js to activate colours in Python snippets -->
+<script>
+      hljs.highlightAll();
+</script>
+
+<!-- Function to inset JSON files -->
+
+<script>
+  /**
+   * Function to fetch and display JSON data in a code block
+   * @param {string} jsonFile - The path to the JSON file
+   * @param {string} elementId - The ID of the <code> element to display the JSON
+   */
+  function displayJson(jsonFile, elementId) {
+      fetch(jsonFile)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`Could not load JSON file: ${jsonFile}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const codeElement = document.getElementById(elementId);
+              if (!codeElement) {
+                  console.error(`Element with ID "${elementId}" not found.`);
+                  return;
+              }
+              // Convert JSON to a pretty-printed string
+              codeElement.textContent = JSON.stringify(data, null, 4);
+              // Apply syntax highlighting with Highlight.js
+              hljs.highlightElement(codeElement);
+          })
+          .catch(error => {
+              console.error(`Error displaying JSON for ${elementId}:`, error);
+          });
+  }
+
+  // Call the function to display two JSON files
+  displayJson('scripts/movies_metadata_head.json', 'json-code-1');
+  displayJson('scripts/ratings_head.json', 'json-code-2');
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Portfolio</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+
+  /* Hero Section (Background picture)*/  
+  .hero {
+      position: relative;
+      background-image: url('images/background/project_dbt.png');
+      background-size: cover;
+      background-position: center 55%;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: 2;
+  }
+
+  .hero .content {
+      position: relative;
+      z-index: 3;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero a.btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+  }
+
+    /* Additional CSS for Projects Section (article) */
+
+  .project-article {
+    margin: 50px auto;
+    max-width: 800px; /* Limit width to keep text readable */
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+
+
+  .project-article p {
+    color: #333; /* Same color as 'about-section' */
+    text-align: justify;
+    margin-bottom: 40px;
+  }
+
+  .project-article h2 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+  }
+
+  .project-article h3 {
+    margin-top: 60px;    
+  }
+
+
+  .project-article p strong {
+      font-weight: bold; /* Bold keywords */
+  }
+
+
+  /* Image styling */
+  .project-article img {
+      max-width: 100%; /* Responsive image scaling */
+      height: auto;
+      margin-bottom: 40px;
+      border-radius: 10px; /* Optional: rounded corners for images */
+  }
+
+
+  /* Responsive table wrapper for small screens */
+  .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      margin: 20px 0; /* Optional: space around the table */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  /* General Table Styles */
+  table {
+      width: 100%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+  }
+
+  /* Table Cell Styling */
+  table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+  }
+
+  /* Special Styling for Last Row */
+  .last-row {
+    border-top: 2px double #333; /* Double line on top of the last row */
+    font-weight: bold;
+  }
+
+  /* Caption Styling */
+  caption {
+      caption-side: top;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #000;
+  }
+
+/* Adjustments for Smaller Screens (mobile) */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.75rem; /* Slightly smaller text for mobile */
+    }
+
+    table th, table td {
+        padding: 5px; /* Reduce padding on mobile */
+    }
+}
+
+
+
+
+  /* For the centrally aligned image */
+
+  .central-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto; /* Centers the figure */
+  }
+
+  .central-image img {
+      max-width: 100%; /* Make the image smaller, adjust percentage as needed */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 5px; /* Optional: Adds rounded corners to the image */
+  }
+
+
+
+  .large-figure img {
+  max-width: 80%; /* Increase the image size to 150% of its normal width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+
+
+  /* For 6 pcitures organized in 2 rows each with 3 pictures (2x3)*/
+
+.image-grid_6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_6 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+.image-grid_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_2 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+
+figcaption {
+  grid-column: 1 / -1; /* This spans the caption across all columns */
+  text-align: center; /* Center the caption text */
+  font-weight: bold; /* Make the caption bold */
+  margin-top: 10px;
+}
+
+
+  /* Additional CSS for Contact Section */
+
+  .contact-section {
+      padding: 50px 0;
+  }
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin: 5px 0; /* Small margin for each line of text */
+    color: #ffffff;
+  }
+
+  .social-icon {
+      width: 40px; /* Size of your icons */
+      margin-bottom: 15px;
+  }
+
+  /* Hover effect for icons */
+
+  .social-icon:hover {
+      opacity: 0.7;
+  }
+  /* Style for links in the Contact section */
+
+  .contact-section a {
+      color: #fff;
+      text-decoration: none; /* Removes underline from links */
+      display: inline-block; /* Allows for margin on the bottom */
+      margin-bottom: 10px;
+  }
+  .contact-section a:hover {
+      color: #ddd; /* Color when hovering over the link */
+  }
+
+  /* CSS for Sticky Navbar */
+  .navbar {
+    box-shadow: none; /* Removes the shadow */
+    border: none; /* Ensures there's no border */
+  }
+
+
+
+  /* Smooth scroll */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* Initial transparent navbar */
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays above other elements */
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Change the color of the navbar when scrolled */
+  .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your background image */
+  }
+
+  /* Ensure the navbar links are fully opaque */
+  .navbar .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+      padding-left: 10px; /* Adjust these values to move closer to the edge */
+      padding-right: 10px;
+  }
+
+
+  .navbar-nav .nav-link {
+      padding-left: 20px; /* Adjust these values to move closer to the edge */
+      padding-right: 20px;
+  } 
+
+  .navbar.scrolled .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  /* Ensure the navbar brand is also fully opaque */
+  .navbar .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+    
+/* Media query for responsive navbar collapsing: for smartphones nad tablets */
+
+
+  /* Reduce the font size of the warning text for smaller screens */
+  @media (max-width: 992px) {
+
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .hero p {
+    font-size: 1.0rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    }
+    .navbar .nav-link {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Adjust the brand size too if needed */
+    }
+    .warning-text {
+        font-size: 0.6rem; /* Adjust this value as needed */
+    }
+
+    /* You can also reduce the size of the image */
+    .navbar-warning img {
+        display: none;
+    }
+
+    .navbar-collapse {
+      width: 100%; /* Full width */
+      padding: 10px; /* Optional padding */
+      text-align: center; /* Center the text inside the menu */
+      background-color: transparent; /* Transparent like the navbar when not scrolled */
+      transition: background-color 0.1s ease-in-out; /* Smooth transition */
+    }
+    /* When the navbar is scrolled, match the background color */
+    .navbar.scrolled .navbar-collapse {
+      background-color: rgba(50, 49, 49, 0.8); /* Same as scrolled navbar */
+    }
+
+    .navbar-nav {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the nav items horizontally */
+    }
+
+    .nav-item {
+      margin: 0 15px; /* Adjust the margin between nav items */
+    }
+
+
+    }
+
+    /* Make the hamburger (menu button) button smaller */
+    .navbar-toggler {
+    padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
+    font-size: 0.85rem; /* Adjust font size if necessary */
+    border: none; /* Optional: Remove border if needed */
+
+    }
+
+</style>
+
+
+<!-- Include Highlight.js CSS Theme for Python scripts snippets -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+
+<!-- Include Highlight.js Script for Python scripts snippets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+    
+
+
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="content">
+      <h1>ELT with dbt and Snowflake: A Hands-On Introduction</h1>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+
+<section class="project-article"> <!-- Start writing the article here -->
+
+  <p>Modern data workflows rely on efficient ways to turn raw data into insights. <strong>ELT (Extract, Load, Transform)</strong> has become the go-to approach, where data is first extracted from sources, loaded 
+    into a warehouse, and only then transformed. This method makes data pipelines more flexible, scalable, and easier to maintain compared to traditional <strong>ETL</strong> processes.</p>
+
+  <p>This is where <strong>dbt (data build tool)</strong> shines. It brings software engineering best practices into data transformation—think <strong>automated testing</strong>, <strong>version control</strong>, 
+    and <strong>CI/CD</strong> for deploying changes smoothly. Plus, dbt makes SQL transformations cleaner and more reusable with <strong>Common Table Expressions (CTEs)</strong>, so you don’t have to write complex 
+    DDL or DML statements. In short, it keeps your data workflows reliable, efficient, and easy to manage.</p>
+  
+  <p>In the following, I’ll walk through the project I worked on during the <strong>"dbt Fundamentals"</strong> course by dbt. The goal is to upload data into a <strong>Snowflake</strong> warehouse, connect 
+    <strong>dbt</strong> to it, set up <strong>dbt Cloud</strong> with version control, and start transforming the data, which will then materialize in Snowflake.</p>
+  
+  <p>The project focuses on building a <strong>dimensional model</strong> that includes customer information and a <strong>fact model</strong> to track orders and payments. In this article, 
+    I’ll introduce some key concepts and share code snippets used to build the <strong>customer dimension model</strong>.</p>
+
+    <h2>Modularity and reference function</h2>
+  
+  <p> The first step consists of setting up Snowflake and dbt cloud accounts. In order to connect dbt with the data platform, it is possible to use the <strong>Partner Connect</strong> function, which provides also a <strong>managed repository</strong>.
+    The data is imported in Snowflake and raw tables are built in the RAW database. Given the raw data in Snowflake, create the <strong>staging models</strong> for customers and orders and store them in models folder models/staging:</p>
+
+  <p>Create <code>models/staging/jaffle_shop/stg_jaffle_shop__customers.sql</code>:</p>
+  
+  <pre><code class="language-python">
+    select
+      id as customer_id,
+      first_name,
+      last_name
+
+    from raw.jaffle_shop.customers
+  </code></pre>
+
+  <p>Create <code>models/staging/jaffle_shop/stg_jaffle_shop__orders.sql</code>:</p>
+
+    
+  <pre><code class="language-python">
+    select
+      id as order_id,
+      user_id as customer_id,
+      order_date,
+      status
+
+    from raw.jaffle_shop.orders
+  </code></pre>
+
+
+  <p>Create a dimension model for customers <code> models/markets/marketing/dim_customers.sql</code>, use <strong>reference function</strong> to use the staging models introduced above:</p>
+    
+  <pre><code class="language-python">
+  with customers as (
+
+    select * from {{ ref('stg_jaffle_shop__customers') }}
+
+  ),
+
+  orders as ( 
+
+  select * from {{ ref('stg_jaffle_shop__orders') }}
+
+  ),
+
+  customer_orders as (
+
+  select
+      customer_id,
+
+      min(order_date) as first_order_date,
+      max(order_date) as most_recent_order_date,
+      count(order_id) as number_of_orders
+
+  from orders
+
+  group by 1
+
+  ),
+
+  final as (
+
+  select
+      customers.customer_id,
+      customers.first_name,
+      customers.last_name,
+      customer_orders.first_order_date,
+      customer_orders.most_recent_order_date,
+      coalesce (customer_orders.number_of_orders, 0) 
+      as number_of_orders
+
+  from customers
+
+  left join customer_orders using (customer_id)
+
+  )
+
+  select * from final
+
+  </code></pre>
+
+  <p>A key principle in dbt is <strong>modularity</strong>, which means breaking transformations into smaller, reusable steps instead of writing long, complex queries. This makes data models easier to maintain, 
+  debug, and scale. Modularity is also considered in the <strong>folder structure</strong>: all my staging models (which clean and structure raw data) are stored in the <code>models/staging</code> folder, while 
+  my dimension and fact models are organized in <code>models/markets</code>. An advantage of this approach is the flexibility to define whether each model group is materialized in Snowflake as 
+  <strong>view</strong> or <strong>table</strong>) in the <code>dbt_project.yml</code> file: 
+
+  <pre><code class="language-python">
+    models:
+      jaffle_shop:
+        staging:
+          +materialized: view
+        markets:
+          +materialized: table
+  </code></pre>
+
+
+
+  <h2>Add sources and freshness functions</h2>
+
+  <p>One of the best practices in dbt is to define <strong>data sources</strong> explicitly using <code>.yml</code> files placed in the <code>models/staging</code> folder. This helps make transformations more 
+    transparent, organized, and <strong>resilient to changes in upstream EL processes</strong>. Therefore, a <code>models/staging/jaffle_shop/src_jaffle_shop.yml</code> file is created to link dbt with the RAW database
+    in Snowflake: </p>
+
+  <pre><code class="language-python">
+    version: 2
+
+    sources:
+      - name: jaffle_shop
+        database: raw
+        schema: jaffle_shop
+        tables:
+          - name: customers
+          - name: orders
+            loaded_at_field: _etl_loaded_at
+            freshness:
+              warn_after: {count: 12, period: hour}
+              error_after: {count: 24, period: hour}
+  </code></pre>  
+
+  <p>In dbt, the <strong>freshness function</strong> helps ensure that source data is up to date. In this project, the orders must always be updated, therefore a freshness function is applied to the raw table source 
+    in the <code>src_jaffle_shop.yml</code>. The defined sources must be connected (Figure 1) with the models <code>stg_jaffle_shop__customers.sql</code> and <code>stg_jaffle_shop__orders.sql</code> with the function: </p>
+
+  <pre><code class="language-python">
+    from {{ source('jaffle_shop', 'customers') }}
+  </code></pre>  
+
+
+  <figure class="central-image">
+    <img src="images/project_dbt/DAG.png" alt="Figure 1: DAG">
+    <figcaption>Figure 1: updated Directed Acyclic Graph with new defined sources</figcaption>
+  </figure>
+
+  <h2>Implement tests and dbt build command</h2>
+
+  <p>dbt enables <strong>automated testing </strong> to maintain data quality and integrity throughout transformations. Generic tests can be specified in a .yml file, such as <code>staging/jaffle_shop/stg_jaffle_shop.yml</code>, 
+    to check that customer_id and order_id are <code>unique</code>  and <code>not_null</code> , while order_status <code>accepted_values</code> are completed, shipped, returned, return_pending, and placed. 
+    These validations prevent incorrect data from impacting downstream models.</p>
+
+  <pre><code class="language-python">
+    version: 2
+
+    models:
+      - name: stg_jaffle_shop__customers
+        columns:
+          - name: customer_id
+            data_tests:
+              - unique
+              - not_null
+          
+      - name: stg_jaffle_shop__orders
+        columns:
+          - name: order_id
+            data_tests:
+              - unique
+              - not_null
+          - name: status
+            data_tests:
+              - accepted_values:
+                  values:
+                    - completed
+                    - shipped
+                    - returned
+                    - return_pending
+                    - placed
+  </code></pre>  
+
+  <p>When tests are introduced, it is important to use <strong>dbt build</strong> instead of dbt run. dbt build is preferred because it runs tests before materializing models, ensuring only validated data moves to the next step
+     of the DAG. Additionally, for more complex checks, <strong>singular tests</strong> can be implemented using SQL queries inside the 
+     <code>tests/</code> folder, allowing for advanced data validation beyond generic tests.</p>
+
+
+  <h2>Documentation</h2>
+
+  <p>Documentation often falls behind code updates because it is treated as a separate process. To address this, dbt integrates documentation directly into the modeling workflow, keeping it as close as possible to the code for 
+    automation and consistency. In dbt, documentation is written in YML files stored alongside SQL models. These YML files allow descriptions at the model, source, and column levels, making it easy to document what each table and field represents. 
+  For example, it is possible to specify descriptions of tables or columns included in the model <code>stg_jaffle_shop__orders.sql</code>
+  modifying the correspondent <code>stg_jaffle_shop.yml</code>:</p>
+
+  <pre><code class="language-python">
+    - name: stg_jaffle_shop__orders
+    description: Staged order data from our jaffle shop app.
+    columns: 
+      - name: order_id
+        description: Primary key for orders.
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: "{{ doc('order_status') }}"
+        tests:
+          - accepted_values:
+              values:
+                - completed
+                - shipped
+                - returned
+                - placed
+                - return_pending
+  </code></pre> 
+
+  <p>The <code>.yml </code> shown above includes both <strong>model</strong> and <strong>columns</strong> descriptions.
+    The description of <code>order_status</code> is too long therefore, it has been specified in a <strong>doc block</strong>
+    included in a Markdown (<code>.md</code>) file:   
+  </p>
+
+  <pre><code class="language-python">
+    {% docs order_status %}
+    
+    One of the following values: 
+    
+    | status         | definition                                       |
+    |----------------|--------------------------------------------------|
+    | placed         | Order placed, not yet shipped                    |
+    | shipped        | Order has been shipped, not yet been delivered   |
+    | completed      | Order has been received by customers             |
+    | return pending | Customer indicated they want to return this item |
+    | returned       | Item has been returned                           |
+    
+    {% enddocs %}
+  </code></pre> 
+
+  <p>Figure 2 shows an overview of the obtained documentation for the model <code>stg_jaffle_shop__orders.sql</code>.   
+  </p>
+
+  <figure class="central-image">
+    <img src="images/project_dbt/doc2.png" alt="Figure 2: documentation">
+    <figcaption>Figure 2: documentation for <code>stg_jaffle_shop__orders.sql</code></figcaption>
+  </figure>
+
+
+
+<h2>Deployment</h2>
+
+<p>Now that the development is completed, the models can be put into <strong>production</strong>, meaning they are scheduled to run automatically and provide reliable, up-to-date data for business decision-making. 
+  In dbt, deployment refers to the process of running models on a predefined schedule in a dedicated production environment, ensuring that transformations are executed consistently without manual intervention.
+
+  To deploy the models, a <strong>new environment</strong> was set up, including a dedicated <strong>production branch</strong> and a dedicated <strong>production schema</strong>. This separation ensures that development work does not interfere with 
+  production data and allows for controlled updates. Once deployed, dbt runs the models at scheduled intervals, keeping them refreshed and ready for use in reporting and analytics.</p>
+
+
+
+
+</section> <!-- End of text section -->
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 mb-3">
+        <!-- Icons centered and reduced in size with hover effect -->
+        <a href="https://www.linkedin.com/in/gabriele--mauro/" target="_blank" class="mx-2">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/Gabriele202277" target="_blank" class="mx-2">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+      </div>
+      <div class="col-12">
+        <!-- Contact information centered below the icons with hover effect -->
+        <p>gabriele-mauro@hotmail.it</p>
+        <p>+45 52631793</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid"> <!-- Changed from 'container' to 'container-fluid' -->
+    <a class="navbar-brand" href="index.html">Gabriele Mauro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(window).scroll(function() {
+      if ($(this).scrollTop() > $('.hero').height()) {
+          $('.navbar').addClass('scrolled');
+      } else {
+          $('.navbar').removeClass('scrolled');
+      }
+  });
+</script>
+
+
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
+
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
+
+
+<!-- Initialize Highlight.js to activate colours in Python snippets -->
+<script>
+      hljs.highlightAll();
+</script>
+
+<!-- Function to inset JSON files -->
+
+<script>
+  /**
+   * Function to fetch and display JSON data in a code block
+   * @param {string} jsonFile - The path to the JSON file
+   * @param {string} elementId - The ID of the <code> element to display the JSON
+   */
+  function displayJson(jsonFile, elementId) {
+      fetch(jsonFile)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`Could not load JSON file: ${jsonFile}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const codeElement = document.getElementById(elementId);
+              if (!codeElement) {
+                  console.error(`Element with ID "${elementId}" not found.`);
+                  return;
+              }
+              // Convert JSON to a pretty-printed string
+              codeElement.textContent = JSON.stringify(data, null, 4);
+              // Apply syntax highlighting with Highlight.js
+              hljs.highlightElement(codeElement);
+          })
+          .catch(error => {
+              console.error(`Error displaying JSON for ${elementId}:`, error);
+          });
+  }
+
+  // Call the function to display two JSON files
+  displayJson('scripts/movies_metadata_head.json', 'json-code-1');
+  displayJson('scripts/ratings_head.json', 'json-code-2');
+</script>
+
+
+
+
+
+</body>
+</html>

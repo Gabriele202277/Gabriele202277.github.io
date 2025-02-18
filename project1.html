@@ -62,7 +62,7 @@
       border-radius: 0;
   }
 
-    /* Additional CSS for text */
+    /* Additional CSS for Projects Section (article) */
 
   .project-article {
     margin: 50px auto;
@@ -172,11 +172,6 @@
       border-radius: 5px; /* Optional: Adds rounded corners to the image */
   }
 
-  .central-image figcaption {
-      font-size: 1rem;
-      text-align: center;
-      margin-top: 10px;
-  }
 
 
   .large-figure img {
@@ -185,15 +180,11 @@
   margin: 0 auto; /* Center the image */
 }
 
-.large-figure figcaption {
-  text-align: center;
-  margin-top: 10px;
-  font-weight: bold;
-}
+
 
   /* For 6 pcitures organized in 2 rows each with 3 pictures (2x3)*/
 
-.image-grid {
+.image-grid_6 {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
   gap: 0; /* Reduce vertical space between rows */
@@ -202,7 +193,7 @@
   margin-bottom: 40px; /* Add some space below the images */
 }
 
-.image-grid img {
+.image-grid_6 img {
   max-width: 110%; /* Make sure the images fit within the grid cells */
   height: auto;
   margin: 0; /* Ensure no margin around images */
@@ -608,7 +599,7 @@ figcaption {
     might be more useful for distinguishing between the different wine classes.
   </p>
 
-  <div class="image-grid">
+  <div class="image-grid_6">
       <img src="images/project1/frequency/frequency_Alcohol.png" alt="Alcohol Distribution">
       <img src="images/project1/frequency/frequency_Flavanoids.png" alt="Flavanoids Distribution">
       <img src="images/project1/frequency/frequency_Color intensity.png" alt="Color Intensity Distribution">
