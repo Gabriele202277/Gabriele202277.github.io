@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Portfolio</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+
+
+  /* Hero Section (Background picture)*/  
+  .hero {
+      position: relative;
+      background-image: url('images/background/new-york-city.png');
+      background-size: cover;
+      background-position: center 55%;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      z-index: 1;
+  }
+
+  .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.35);
+      z-index: 2;
+  }
+
+  .hero .content {
+      position: relative;
+      z-index: 3;
+  }
+
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .hero a.btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0;
+  }
+
+    /* Additional CSS for Projects Section (article) */
+
+  .project-article {
+    margin: 50px auto;
+    max-width: 800px; /* Limit width to keep text readable */
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+
+
+  .project-article p {
+    color: #333; /* Same color as 'about-section' */
+    text-align: justify;
+    margin-bottom: 40px;
+  }
+
+  .project-article h2 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+  }
+
+  .project-article h3 {
+    margin-top: 60px;    
+  }
+
+
+  .project-article p strong {
+      font-weight: bold; /* Bold keywords */
+  }
+
+
+  /* Image styling */
+  .project-article img {
+      max-width: 100%; /* Responsive image scaling */
+      height: auto;
+      margin-bottom: 40px;
+      border-radius: 10px; /* Optional: rounded corners for images */
+  }
+
+
+  /* Responsive table wrapper for small screens */
+  .table-responsive {
+      width: 100%;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      margin: 20px 0; /* Optional: space around the table */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  /* General Table Styles */
+  table {
+      width: 100%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+  }
+
+  /* Table Cell Styling */
+  table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+  }
+
+  /* Special Styling for Last Row */
+  .last-row {
+    border-top: 2px double #333; /* Double line on top of the last row */
+    font-weight: bold;
+  }
+
+  /* Caption Styling */
+  caption {
+      caption-side: top;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #000;
+  }
+
+/* Adjustments for Smaller Screens (mobile) */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.75rem; /* Slightly smaller text for mobile */
+    }
+
+    table th, table td {
+        padding: 5px; /* Reduce padding on mobile */
+    }
+}
+
+
+
+
+  /* For the centrally aligned image */
+
+  .central-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto; /* Centers the figure */
+  }
+
+  .central-image img {
+      max-width: 100%; /* Make the image smaller, adjust percentage as needed */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 5px; /* Optional: Adds rounded corners to the image */
+  }
+
+
+
+  .large-figure img {
+  max-width: 80%; /* Increase the image size to 150% of its normal width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+
+
+  /* For 6 pcitures organized in 2 rows each with 3 pictures (2x3)*/
+
+.image-grid_6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_6 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+.image-grid_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create 3 equal columns */
+  gap: 0; /* Reduce vertical space between rows */
+  column-gap: 0px; /* Adjust horizontal space between grid items */
+  justify-items: center; /* Center the images in each grid cell */
+  margin-bottom: 40px; /* Add some space below the images */
+}
+
+.image-grid_2 img {
+  max-width: 110%; /* Make sure the images fit within the grid cells */
+  height: auto;
+  margin: 0; /* Ensure no margin around images */
+  padding: 0; /* Ensure no padding around images */
+}
+
+
+figcaption {
+  grid-column: 1 / -1; /* This spans the caption across all columns */
+  text-align: center; /* Center the caption text */
+  font-weight: bold; /* Make the caption bold */
+  margin-top: 10px;
+}
+
+
+  /* Additional CSS for Contact Section */
+
+  .contact-section {
+      padding: 50px 0;
+  }
+  .contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    margin: 5px 0; /* Small margin for each line of text */
+    color: #ffffff;
+  }
+
+  .social-icon {
+      width: 40px; /* Size of your icons */
+      margin-bottom: 15px;
+  }
+
+  /* Hover effect for icons */
+
+  .social-icon:hover {
+      opacity: 0.7;
+  }
+  /* Style for links in the Contact section */
+
+  .contact-section a {
+      color: #fff;
+      text-decoration: none; /* Removes underline from links */
+      display: inline-block; /* Allows for margin on the bottom */
+      margin-bottom: 10px;
+  }
+  .contact-section a:hover {
+      color: #ddd; /* Color when hovering over the link */
+  }
+
+  /* CSS for Sticky Navbar */
+  .navbar {
+    box-shadow: none; /* Removes the shadow */
+    border: none; /* Ensures there's no border */
+  }
+
+
+
+  /* Smooth scroll */
+  html {
+      scroll-behavior: smooth;
+  }
+
+  /* Initial transparent navbar */
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Ensure it stays above other elements */
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  /* Change the color of the navbar when scrolled */
+  .navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.8); /* Adjust this to match your background image */
+  }
+
+  /* Ensure the navbar links are fully opaque */
+  .navbar .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+      padding-left: 10px; /* Adjust these values to move closer to the edge */
+      padding-right: 10px;
+  }
+
+
+  .navbar-nav .nav-link {
+      padding-left: 20px; /* Adjust these values to move closer to the edge */
+      padding-right: 20px;
+  } 
+
+  .navbar.scrolled .nav-link {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      font-size: 1.0rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  /* Ensure the navbar brand is also fully opaque */
+  .navbar .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+
+  .navbar.scrolled .navbar-brand {
+      color: rgba(255, 255, 255, 1) !important; /* Fully opaque white */
+      transition: color 0.3s ease-in-out;
+  }
+    
+/* Media query for responsive navbar collapsing: for smartphones nad tablets */
+
+
+  /* Reduce the font size of the warning text for smaller screens */
+  @media (max-width: 992px) {
+
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .hero p {
+    font-size: 1.0rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    }
+    .navbar .nav-link {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .navbar-brand {
+        font-size: 1rem; /* Adjust the brand size too if needed */
+    }
+    .warning-text {
+        font-size: 0.6rem; /* Adjust this value as needed */
+    }
+
+    /* You can also reduce the size of the image */
+    .navbar-warning img {
+        display: none;
+    }
+
+    .navbar-collapse {
+      width: 100%; /* Full width */
+      padding: 10px; /* Optional padding */
+      text-align: center; /* Center the text inside the menu */
+      background-color: transparent; /* Transparent like the navbar when not scrolled */
+      transition: background-color 0.1s ease-in-out; /* Smooth transition */
+    }
+    /* When the navbar is scrolled, match the background color */
+    .navbar.scrolled .navbar-collapse {
+      background-color: rgba(50, 49, 49, 0.8); /* Same as scrolled navbar */
+    }
+
+    .navbar-nav {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the nav items horizontally */
+    }
+
+    .nav-item {
+      margin: 0 15px; /* Adjust the margin between nav items */
+    }
+
+
+    }
+
+    /* Make the hamburger (menu button) button smaller */
+    .navbar-toggler {
+    padding: 0.20rem 0.35rem; /* Reduce padding to make it smaller */
+    font-size: 0.85rem; /* Adjust font size if necessary */
+    border: none; /* Optional: Remove border if needed */
+
+    }
+
+</style>
+
+
+<!-- Include Highlight.js CSS Theme for Python scripts snippets -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+
+<!-- Include Highlight.js Script for Python scripts snippets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+    
+
+
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="content">
+      <h1>Airbnb market analysis in Databricks
+      </h1>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+
+<section class="project-article"> <!-- Start writing the article here -->
+
+  <section>
+
+    <p><strong>Databricks</strong> is a useful cloud-based platform for data analytics, combining big data processing with tools for querying and visualizing data. 
+        I decided to get some hands-on experience in Databricks because I can see its great advantage in enabling teams to analyze large datasets efficiently, <strong>collaborate</strong> on 
+        data projects, and create dashboards, all in one workspace. For this project, I analyzed Airbnb data from New York City. The goal was to clean and transform the data, perform some analytics, and visualize the results. This report is divided into three parts:</p>
+      
+      <ul>
+          <li><strong>Part 1:</strong> Data ingestion, cleaning, and transformation.</li>
+          <li><strong>Part 2:</strong> Data analytics – exploring patterns, pricing, and demand.</li>
+          <li><strong>Part 3:</strong> Data visualization – using charts to present findings.</li>
+      </ul>
+      
+      <p>The aim is to answer questions like answer questions like: how do prices vary across different areas? What type of properties are most popular in each borough?</p>
+
+      <p>Let’s dive into the first part!</p>
+
+  </section>
+
+  <!-- Part 1: Data Ingestion and Cleaning -->
+
+  <section>
+      <h2>Part 1: Data Ingestion, Cleaning & Transformation</h2>
+      <p>First, I set up my <strong>Databricks environment</strong> and selected the right catalog to work with. The dataset consists of two main tables:</p>
+      <ul>
+          <li><strong>Listings Table:</strong> Contains details about each property, such as price, location, property type, and host information.</li>
+          <li><strong>Reviews Table:</strong> Captures customer reviews, including review counts, scores, last review dates, and host-related metrics.</li>
+      </ul>
+      <p> The fist step is to study the information and column names included in the tables in order to set up a <strong>Combined Table</strong> with an <code>INNER JOIN</code>.</p>
+      <p>The first query I ran was to count the number of listings per neighborhood using the <code>GROUP BY</code> function. Here, I noticed some <strong>typos</strong> in neighborhood names, such as 'brookln' instead of 'Brooklyn' and 'manhatan' instead of 'Manhattan'. To fix this, I created a new column where all neighborhoods have the correct spelling and capitalized first letters.</p>
+      
+      <p>Next, I checked for <strong>NULL values</strong> in important fields like <code>listing_id</code>, <code>host_id</code>, <code>price</code>, and <code>neighbourhood</code>. Any records with missing values in these critical fields were removed to ensure cleaner data. These transformations and cleaning steps prepared the dataset for the next phase, where I could start running analytics.</p>
+      
+      <p>Below is the detailed code from my Databricks notebook:</p>
+      <iframe src="file/Airbnb_NY_analysis_part01.html" width="100%" height="600px"></iframe>
+  </section>
+
+    <!-- Part 2: Analytics -->
+    <section>
+      <h2>Part 2: Data Analytics</h2>
+
+      <p>Now that the data is clean, I explored some key <strong>query structures</strong> such as subqueries and window functions to analyze earnings, demand, and housing availability:</p>
+      <ul>
+          <li>
+              <strong>Subquery:</strong> I identified neighborhoods where the average price per night is higher than the overall market average. The results showed that <strong>Brooklyn, Staten Island, and Queens</strong> have average prices exceeding the overall market price.
+          </li>
+          <li>
+              <strong>Window Function:</strong> I displayed the <strong>top 5 most expensive listings</strong> in each neighborhood. This table shows that the maximum price is approximately the same across all neighborhoods.
+          </li>
+          <li>
+              <strong>New Feature:</strong> I introduced an <strong>availability score</strong> to measure the supply of listings in each neighborhood.
+          </li>
+          <li>
+              <strong>Summary Tables:</strong> I generated tables summarizing <strong>revenues, availability, and demand</strong> (total number of reviews).
+          </li>
+        </ul>
+      <p><strong>Key Finding:</strong> The most competitive markets are <strong>Manhattan and Brooklyn</strong>. They have the highest revenues and demand, making them attractive for hosts. The most popular listings are <strong>entire apartments</strong>, followed by private rooms.</p>
+      <p>Below is the detailed code from my Databricks notebook:</p>
+      <iframe src="file/Airbnb NY analysis - part02.html" width="100%" height="600px"></iframe>
+  </section>
+
+
+</section> <!-- End of text section -->
+
+
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section text-center text-white bg-dark">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 mb-3">
+        <!-- Icons centered and reduced in size with hover effect -->
+        <a href="https://www.linkedin.com/in/gabriele--mauro/" target="_blank" class="mx-2">
+          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/Gabriele202277" target="_blank" class="mx-2">
+          <img src="icons/github.png" alt="GitHub" class="social-icon">
+        </a>
+      </div>
+      <div class="col-12">
+        <!-- Contact information centered below the icons with hover effect -->
+        <p>gabriele-mauro@hotmail.it</p>
+        <p>+45 52631793</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid"> <!-- Changed from 'container' to 'container-fluid' -->
+    <a class="navbar-brand" href="index.html">Gabriele Mauro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(window).scroll(function() {
+      if ($(this).scrollTop() > $('.hero').height()) {
+          $('.navbar').addClass('scrolled');
+      } else {
+          $('.navbar').removeClass('scrolled');
+      }
+  });
+</script>
+
+
+<script>
+  // Close the menu when the user scrolls
+  $(window).scroll(function() {
+      if ($('.navbar-collapse').hasClass('show')) { 
+          $('.navbar-collapse').collapse('hide');
+      }
+  });
+
+  // Close the menu after a section is selected
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-collapse').collapse('hide');
+  });
+</script>
+
+
+<!-- Initialize Highlight.js to activate colours in Python snippets -->
+<script>
+      hljs.highlightAll();
+</script>
+
+<!-- Function to inset JSON files -->
+
+<script>
+  /**
+   * Function to fetch and display JSON data in a code block
+   * @param {string} jsonFile - The path to the JSON file
+   * @param {string} elementId - The ID of the <code> element to display the JSON
+   */
+  function displayJson(jsonFile, elementId) {
+      fetch(jsonFile)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`Could not load JSON file: ${jsonFile}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              const codeElement = document.getElementById(elementId);
+              if (!codeElement) {
+                  console.error(`Element with ID "${elementId}" not found.`);
+                  return;
+              }
+              // Convert JSON to a pretty-printed string
+              codeElement.textContent = JSON.stringify(data, null, 4);
+              // Apply syntax highlighting with Highlight.js
+              hljs.highlightElement(codeElement);
+          })
+          .catch(error => {
+              console.error(`Error displaying JSON for ${elementId}:`, error);
+          });
+  }
+
+  // Call the function to display two JSON files
+  displayJson('scripts/movies_metadata_head.json', 'json-code-1');
+  displayJson('scripts/ratings_head.json', 'json-code-2');
+</script>
+
+
+
+
+
+</body>
+</html>
