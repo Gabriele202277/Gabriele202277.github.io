@@ -86,6 +86,7 @@
   }
 
   .project-article h3 {
+    font-size:large;
     margin-top: 60px;    
   }
 
@@ -499,26 +500,192 @@ figcaption {
 
 <section>
 
-  <h2>Part 3: Dashboard Setup</h2>
+  <h2>Part 3: Dashboard</h2>
 
 
+    <p>
+      Take a quick overview <strong>Airbnb Insights Dashboard</strong> I have created on Databricks! For more details, read below. 
+    </p>
 
     <div style="border: 0px solid #ccc; padding: 0px; border-radius: 5px; background-color: #ffffff; width: 800px; text-align: center;">
       <img src="file/dashboard.gif" alt="Dashboard Preview" width="100%">
     </div>
 
+    <div>
+      <p>
+          Dashboards allow to translate insights into a visual and interactive format however, well-prepared data is the solid foundation for creating
+          impactful visualizations. The Airbnb dataset has already been cleaned and transformed, ensuring its accuracy by focusing on key metrics like pricing, 
+          room type, and location. Before jumping into the data visualization a data-set is created in the dashboard environment, which includes also some of the new derived features
+            and metrics from the previous section, such as revenue, listing density, and availability metrics (find SQL script below).
+      </p>
+  
+      <p>Once the dataset has been created, the dashboard can be structured. I have been working at 
+        three key sections, each designed to highlight different aspects of the Airbnb market:</p>
+  
+      <ul>
+          <li>
+              <strong>Key Metrics Overview:</strong>  
+              the bar charts were used to present high-level metrics in a clear and structured format, allowing for quick 
+              comparisons across neighborhoods and property types.
+          </li>
+  
+          <li>
+              <strong>Trends in Pricing, Demand, and Availability:</strong>  
+              the line charts provided insight into how service fees, review rates, and the number of listings fluctuate 
+              across different neighborhoods and room types. One key finding was that areas with lower availability 
+              and demand, such as Staten Island, tend to have higher service fees. Additionally, a heatmap revealed that 
+              shared rooms are generally unpopular across all neighborhoods, reinforcing the preference for private and 
+              entire accommodations.
+          </li>
+  
+          <li>
+              <strong>Correlations and Market Insights:</strong>  
+              the final section of the dashboard focused on analyzing relationships between key Airbnb metrics. Scatter 
+              plots were used to explore how price correlates with review scores, availability, and host-related factors. 
+              One notable observation was that listings with higher service fees often receive better reviews. This 
+              suggests that higher fees may be associated with improved service quality, leading to greater customer 
+              satisfaction.
+          </li>
+      </ul>
+  
+      <p>Extend section below and check out the SQL script used to create the dataset and the plots!</p>
+    </div>
 
-    <div class="image-grid_6">
-      <img src="images/project_databricks/1.png" alt="Total listings">
-      <img src="images/project_databricks/2.png" alt="Average price">
-      <img src="images/project_databricks/3.png" alt="Total earnings">
-      <img src="images/project_databricks/4.png" alt="Trend curve">
-      <img src="images/project_databricks/5.png" alt="Trend curve">
-      <img src="images/project_databricks/6.png" alt="Trend curve">
-      <img src="images/project_databricks/7.png" alt="Correlation">
-      <img src="images/project_databricks/8.png" alt="Correlation">
-      <img src="images/project_databricks/9.png" alt="Correlation">
-  </div>
+    <details>
+      <summary><strong>Click to show details extracted from the Dashboard environment:</strong></summary>
+
+      <h3>SQL script:</h3>
+
+      <pre><code class="language-python">
+        USE CATALOG databricks_ws_6d7700e6_3d38_4d8e_be7a_283eba726df6;
+
+        WITH aggregated_data AS (
+            SELECT 
+                standardized_neighborhood_group,
+                room_type,
+                AVG(price) AS avg_price,
+                AVG(review_rate_number) AS avg_review_rate
+            FROM default.airbnb_combined
+            WHERE standardized_neighborhood_group != 'Unknown'
+            GROUP BY standardized_neighborhood_group, room_type
+          ),
+          listing_density AS (
+              SELECT 
+                  standardized_neighborhood_group,
+                  room_type,
+                  COUNT(listing_id) AS total_listings
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown'
+              GROUP BY standardized_neighborhood_group, room_type
+              HAVING total_listings > 1
+          ),
+          room_type_pricing AS (
+              SELECT 
+                  standardized_neighborhood_group,
+                  room_type,
+                  MIN(price) AS min_price,
+                  MAX(price) AS max_price,
+                  AVG(price) AS room_avg_price
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown'
+              GROUP BY standardized_neighborhood_group, room_type
+          ),
+          aggregated_service_metrics AS (
+              SELECT 
+                  standardized_neighborhood_group, 
+                  room_type,
+                  AVG(availability_365/365*100) AS avg_availability, 
+                  AVG(service_fee) AS avg_service_fee, 
+                  SUM(service_fee) AS total_service_fee_revenue
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown'
+              GROUP BY standardized_neighborhood_group, room_type
+          ),
+          total_earnings AS (
+              SELECT 
+                  standardized_neighborhood_group, 
+                  room_type,
+                  SUM(price * reviews_per_month * 12) AS total_earnings
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown'
+                AND reviews_per_month IS NOT NULL
+              GROUP BY standardized_neighborhood_group, room_type
+          ),
+          host_features AS (
+              SELECT
+                  standardized_neighborhood_group,
+                  room_type,
+                  SUM(CASE WHEN host_identity_verified = 't' THEN 1 ELSE 0 END) AS verified_hosts,
+                  SUM(CASE WHEN instant_bookable = 't' THEN 1 ELSE 0 END) AS instant_bookable_listings
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown'
+              GROUP BY standardized_neighborhood_group, room_type
+          ),
+          construction_year_metrics AS (
+              SELECT
+                  standardized_neighborhood_group,
+                  room_type,
+                  AVG(2024 - construction_year) AS avg_listing_age
+              FROM default.airbnb_combined
+              WHERE standardized_neighborhood_group != 'Unknown' AND construction_year IS NOT NULL
+              GROUP BY standardized_neighborhood_group, room_type
+          )
+          SELECT 
+              a.standardized_neighborhood_group,
+              a.room_type,
+              a.avg_price,
+              a.avg_review_rate,
+              ld.total_listings,
+              rtp.min_price,
+              rtp.max_price,
+              rtp.room_avg_price,
+              asm.avg_availability,
+              asm.avg_service_fee,
+              asm.total_service_fee_revenue,
+              te.total_earnings,
+              hf.verified_hosts,
+              hf.instant_bookable_listings,
+              cym.avg_listing_age
+          FROM aggregated_data a
+          LEFT JOIN listing_density ld 
+              ON a.standardized_neighborhood_group = ld.standardized_neighborhood_group
+              AND a.room_type = ld.room_type
+          LEFT JOIN room_type_pricing rtp 
+              ON a.standardized_neighborhood_group = rtp.standardized_neighborhood_group
+              AND a.room_type = rtp.room_type
+          LEFT JOIN aggregated_service_metrics asm 
+              ON a.standardized_neighborhood_group = asm.standardized_neighborhood_group
+              AND a.room_type = asm.room_type
+          LEFT JOIN total_earnings te 
+              ON a.standardized_neighborhood_group = te.standardized_neighborhood_group
+              AND a.room_type = te.room_type
+          LEFT JOIN host_features hf 
+              ON a.standardized_neighborhood_group = hf.standardized_neighborhood_group
+              AND a.room_type = hf.room_type
+          LEFT JOIN construction_year_metrics cym 
+              ON a.standardized_neighborhood_group = cym.standardized_neighborhood_group
+              AND a.room_type = cym.room_type;
+      </code></pre>  
+
+      <h3>Charts</h3>
+
+      <div class="image-grid_6">
+        <img src="images/project_databricks/1.png" alt="Total listings">
+        <img src="images/project_databricks/2.png" alt="Average price">
+        <img src="images/project_databricks/3.png" alt="Total earnings">
+        <img src="images/project_databricks/4.png" alt="Trend curve">
+        <img src="images/project_databricks/5.png" alt="Trend curve">
+        <img src="images/project_databricks/6.png" alt="Trend curve">
+        <img src="images/project_databricks/7.png" alt="Correlation">
+        <img src="images/project_databricks/8.png" alt="Correlation">
+        <img src="images/project_databricks/9.png" alt="Correlation">
+       </div>
+
+
+  </details>
+  
+
+    
 
 
 
